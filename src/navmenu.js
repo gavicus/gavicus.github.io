@@ -1,12 +1,5 @@
 class NavMenu {
     constructor () {
-        this.iconName = "menu";
-    }
-    toggleIcon () {
-        this.iconName = this.iconName === "menu" ? "close" : "menu";
-    }
-    handleToggle () {
-        console.log('handleToggle')
     }
     renderContent () {
         const buttons = [{text:"one"},{text:"two"},{text:"three"}];
@@ -14,8 +7,10 @@ class NavMenu {
             `<button>${b.text}</button>`
         ));
         return `
-            <i class="material-icons" onclick="this.handleToggle">${this.iconName}</i>
-            ${linkArray.join("")}
+            <i id="toggleIcon" class="material-icons" onclick="handleNavMenuToggle()">menu</i>
+            <div id="navmenuButtonRow" class="buttons hide">
+                ${linkArray.join("")}
+            </div>
         `;
     }
     render () {
@@ -24,5 +19,15 @@ class NavMenu {
                 ${this.renderContent()}
             </div>
         `;
+    }
+}
+
+const handleNavMenuToggle = () => {
+    this.iconName = this.iconName === "close" ? "menu" : "close";
+    setContent("toggleIcon", this.iconName);
+    if (this.iconName === "close") {
+        removeClass("navmenuButtonRow", "hide")
+    } else {
+        addClass("navmenuButtonRow", "hide")
     }
 }
