@@ -3,10 +3,13 @@ body {
     font-family: "helvetica";
     letter-spacing: 1px;
     font-size: 1.1rem;
+    height: 100vh;
+    width: 100vw;
 }
 
 .navmenu {
     margin: 15px;
+    position: absolute;
 }
 
 .navmenu button {
@@ -15,17 +18,17 @@ body {
     color: white;
     height: 3rem;
     border-radius: 1rem;
-    border: 1px solid white;
     padding: 0 20px;
     margin-left: 10px;
     cursor: pointer;
-    transition: background-color 1s, color 1s;
+    transition: background-color 0.5s, color 0.5s;
+    border: 2px solid black;
 }
 
 .navmenu button:hover {
     background-color: white;
     color: black;
-    border-color: black;
+    border-color: darkslategray;
     transition: background-color 0s, color 0s;
 }
 
@@ -35,6 +38,10 @@ body {
     top: 7px;
 }
 
+.navmenu #toggleIcon:hover {
+    color: white;
+}
+
 .navmenu .buttons {
     display: inline-block;
 }
@@ -42,3 +49,17 @@ body {
 .navmenu .buttons.hide {
     visibility: hidden;
 }
+
+.page {
+    height: 100%;
+    width: 100%;
+}
+
+.pageHome {
+    background-color: lightskyblue;
+}
+
+.pageOther {
+    background-color: tan;
+}
+
